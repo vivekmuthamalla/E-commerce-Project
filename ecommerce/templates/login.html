@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock title %}
+{% block content %} 
+
+
+
+
+<div class="row"  >
+    <div class="col-4 ">
+<div class="card bg-light p-3">
+
+    {% for message in messages %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+
+  <strong>{{message}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert"
+  aria-label="Close"></button>
+</div>
+{% endfor %}
+
+
+
+  <h3 data-aos="fade-up text-dark" text-align="center">Login</h3>
+<form action="/auth/login/" method="post">{% csrf_token %}
+  <br>
+
+  <label for="email">Email</label>
+  <div class="form-group">
+    <input type="email" class="form-control" id="email" placeholder="Enter your Email" name="email" required>
+  </div>
+  <label for="pass1">Password</label>
+  <div class="from-group">
+    <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Enter Password" required>
+  </div>
+  
+  <br>
+  <button type="submit" class="btn btn-success">Login</button>
+
+  <br>
+  New User? <a href="/auth/signup/">Signup</a>
+
+
+</div>
+
+</div>
+
+<div class="col-4">
+
+
+    <div class="col-4 ">
+
+    </div>
+    <div class="col-4 ">
+
+    </div>
+
+
+  {% endblock content %}
